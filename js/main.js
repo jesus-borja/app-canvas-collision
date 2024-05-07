@@ -9,7 +9,7 @@ const window_width = window.innerWidth * factor;
 canvas.height = window_height;
 canvas.width = window_width;
 
-canvas.style.background = "hsl(6, 93%, 80%)";
+canvas.style.background = "hsl(6, 50%, 71%)";
 
 class Circle {
     constructor(x, y, radius, color, text, speed) {
@@ -70,7 +70,7 @@ function getDistance(x1, y1, x2, y2) {
 }
 
 let circles = [];
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 5; i++) {
     let radius = Math.floor(Math.random() * 100) + 20;
     let randomX = Math.floor(
         Math.random() * (window_width - radius * 2) + radius
@@ -108,10 +108,19 @@ let updateCircle = function () {
                 ) <
                     circle.radius + circle2.radius
             ) {
-                circle.color = "red";
-                circle2.color = "red";
-            } else {
-                circle.color = "purple";
+                let red = Math.floor(Math.random() * 256);
+                let green = Math.floor(Math.random() * 256);
+                let blue = Math.floor(Math.random() * 256);
+                circle.color = `rgb(${red},${green},${blue})`;
+                circle.color = `rgb(${red},${green},${blue})`;
+
+                // calcula el ángulo de colisión
+                let dx = circle2.posX - circle.posX;
+                let dy = circle2.posY - circle.posY;
+                let collisionAngle = Math.atan2(dy, dx);
+
+                circle.dx = -Math.cos(collisionAngle) * circle.speed;
+                circle.dy = -Math.sin(collisionAngle) * circle.speed;
             }
         });
     });
