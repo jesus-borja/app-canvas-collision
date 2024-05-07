@@ -70,7 +70,7 @@ function getDistance(x1, y1, x2, y2) {
 }
 
 let circles = [];
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 12; i++) {
     let radius = Math.floor(Math.random() * 100) + 20;
     let randomX = Math.floor(
         Math.random() * (window_width - radius * 2) + radius
