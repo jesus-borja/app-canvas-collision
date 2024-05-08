@@ -33,7 +33,7 @@ class Circle {
         context.font = "20px Arial";
         context.fillText(this.text, this.posX, this.posY);
 
-        context.lineWidth = 2;
+        context.lineWidth = 4;
         context.arc(this.posX, this.posY, this.radius, 0, Math.PI * 2, false);
         context.stroke();
         context.closePath();
@@ -112,7 +112,7 @@ let updateCircle = function () {
                 let green = Math.floor(Math.random() * 256);
                 let blue = Math.floor(Math.random() * 256);
                 circle.color = `rgb(${red},${green},${blue})`;
-                circle.color = `rgb(${red},${green},${blue})`;
+                circle2.color = `rgb(${red},${green},${blue})`;
 
                 // calcula el ángulo de colisión
                 let dx = circle2.posX - circle.posX;
